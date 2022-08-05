@@ -37,8 +37,8 @@ $(function () {
         e.preventDefault()
         //发起ajax的post请求
         var data = {
-            username: $('#form_reg[name=username]').val(),
-            password: $('#form_reg[name=password]').val()
+            username: $('#form_reg [name=username]').val(),
+            password: $('#form_reg [name=password]').val()
         }
         $.post('/api/reguser', data,
             function (res) {
