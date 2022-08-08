@@ -23,6 +23,11 @@ $(function () {
 
 //获取用户的基本信息
 function getUserInfo() {
+    // var token = localStorage.getItem("token");
+    // if(token === null || token === undefined || token === ''){
+    //     location.href = '/login.html';
+    // }
+
     $.ajax({
         method: 'GET',
         url: '/my/userinfo',
