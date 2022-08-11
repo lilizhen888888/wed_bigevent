@@ -3,7 +3,9 @@
 $.ajaxPrefilter(function (options) {
     // console.log(options.url);
     //在发起正真的ajax请求之前,统一拼接请求的根路径
-    options.url = 'http://www.liulongbin.top:3007' + options.url
+//    options.url = 'http://www.liulongbin.top:3007' + options.url
+    options.url = 'http://192.168.2.166:3007' + options.url
+
     console.log(options.url);
 
     //统一有限的接口,设置headers请求头
@@ -24,5 +26,24 @@ $.ajaxPrefilter(function (options) {
             //2.强制跳转到登录页面
             location.href = '/login.html'
         }
+    }
+
+    options.error = function(XMLHttpRequest, textStatus, errorThrown){
+        debugger
+        // 状态码
+        console.log(XMLHttpRequest.status);
+        // 状态
+        console.log(XMLHttpRequest.readyState);
+        // 错误信息
+        console.log(textStatus);
+        __hideLoading();
+        
+        // if(XMLHttpRequest.readyState==0){
+        //     // 对应登录超时问题，直接跳到登录页面
+        //     location.href='../Login.action';
+        // }else{
+        //     $.messager.alert('提示','系统内部错误，请联系管理员处理！','info');
+        // }
+
     }
 })
